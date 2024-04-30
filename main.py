@@ -114,11 +114,11 @@ class MainExplainer:
            fpr, tpr, _ = metrics.roc_curve(trues, preds_prob)
            train_auc = metrics.auc(fpr, tpr)
        else:
-           train_auc = metrics.roc_auc_score(trues, preds_prob, average="micro")
+           train_auc = metrics.roc_auc_score(trues, preds_prob, average="micro", )
        if numpy.isnan(train_auc):
            train_auc = 0.5
        train_micro = f1_score(trues, preds, average='micro')
-       train_macro = f1_score(trues, preds, average='macro', labels=[0, 1])
+       train_macro = f1_score(trues, preds, average='macro', labels=[0, 1]) ##
 
        if test_loader is not None:
            test_micro, test_auc, test_macro = self.eval(model, test_loader, args)
@@ -239,7 +239,7 @@ class MainExplainer:
 
        # dataset, bin_edges, y = load_data_singleview(args, 'datasets', args.modality, node_labels)
        print("Getting adj & y...")   #modality:dti
-       adj, y = load_adj_label_HCP('HCP_Data', node_labels, args.att, args.modality)
+       adj, y = load_adj_label_HCP('HCP_Data', node_labels, args, aargs.modality)
        # adj: Tensor: (1040, 132, 132)    filtered_annotations.csv中，有1040行 = 1040个subjects，functional network和structural network都是132 * 132的，翻折对称的，中间全是0
        # y: 长 1040 的一维tensor，male 是 0，female 是 1
        print("Getting node features...")

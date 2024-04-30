@@ -56,7 +56,6 @@ def load_adj_label_HCP(data_dir, label_dir, att, modality):
     
     adj_list = []
     label_list = []
-
     if modality == 'func':
         adj_key = 'functional_network'
         for idx, sub in enumerate(label_df['Subject']):
@@ -92,7 +91,7 @@ def load_adj_label_HCP(data_dir, label_dir, att, modality):
                 label_list.append(label)
             else:
                 raise Exception("The attribute is not supported")
-
+    
     elif modality == 'dti':
         for idx, sub in enumerate(label_df['Subject']):
             if not os.path.isfile(f'{data_dir}/{sub}_density.txt'):
