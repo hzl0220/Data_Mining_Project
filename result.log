@@ -1,3 +1,6 @@
 ['D:\\Workspace\\SparseBrainGNN\\main.py']
 (K Fold Initial)| avg_acc=56.66 +-  1.01, avg_auc=62.03 +- 3.50, avg_macro=54.81 +- 1.49
 
+['main.py', '--modality', 'func', '--att', 'race']
+(K Fold Initial)| avg_acc=49.30 +-  4.60, avg_auc=48.87 +- 4.17, avg_macro=46.27 +- 3.52
+
